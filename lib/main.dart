@@ -49,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  bool _wasTap = false;
 
   void _incrementCounter() {
     setState(() {
@@ -78,9 +79,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite_outline),
-              color: Color.fromRGBO(37, 138, 86, 1),
+              onPressed: () {
+                setState(() {
+                  _wasTap = !_wasTap;
+                });
+              },
+              icon: _wasTap
+                  ? const Icon(Icons.favorite_sharp)
+                  : const Icon(Icons.favorite_outline),
+              color:
+                  _wasTap ? Colors.red : const Color.fromRGBO(37, 138, 86, 1),
             ),
             IconButton(
               onPressed: () {},
