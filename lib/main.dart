@@ -63,12 +63,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
-          leading: const BackButton(
-            color: Color.fromRGBO(37, 138, 86, 1),
-          ),
-          title: const Text('Назад',
-              style: TextStyle(
-                  color: Color.fromRGBO(37, 138, 86, 1), fontSize: 15)),
+          leadingWidth: 100,
+          leading: Row(children: const [
+            BackButton(
+              color: Color.fromRGBO(37, 138, 86, 1),
+            ),
+            Text('Назад',
+                style: TextStyle(
+                    color: Color.fromRGBO(37, 138, 86, 1),
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500))
+          ]),
           actions: [
             IconButton(
               onPressed: () {
@@ -89,46 +94,60 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ]),
       body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Stack(alignment: AlignmentDirectional.bottomCenter, children: [
-                SizedBox(
-                    height: 250,
-                    child: PageView(
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      onPageChanged: (page) {
-                        setState(() {
-                          activePage = page;
-                        });
-                      },
-                      children: [
-                        Image.network(shlepas[0]),
-                        Image.network(shlepas[1]),
-                        Image.network(shlepas[2]),
-                        Image.network(shlepas[3])
-                      ],
-                    )),
-                Container(
-                    decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.7),
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Text('  ${activePage + 1}/4  ',
-                        style: TextStyle(color: Colors.white)),
-                    margin: EdgeInsets.all(20.5))
-              ]),
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Text("Пропал кот"),
-                      Text("Красноармейская улица, 37, Ростов-на-Дону"),
-                      Text("Показать на карте"),
-                      Text("На Красноармейской пропал каракал. Предположительно выпрыгнул через открытое окно. Отзывается на свою кличку “Шлёпа” или “Русский кот”. Очень любит пельмени. Клеймо отсутствует, полное телосложение. Чистый и ухоженный, людей не боится."),
-                    ],
-                  ))
-            ]),
+        child: ListView(children: <Widget>[
+          Stack(alignment: AlignmentDirectional.bottomCenter, children: [
+            SizedBox(
+                height: 250,
+                child: PageView(
+                  scrollDirection: Axis.vertical,
+                  physics: const BouncingScrollPhysics(),
+                  onPageChanged: (page) {
+                    setState(() {
+                      activePage = page;
+                    });
+                  },
+                  children: [
+                    Image.network(shlepas[0]),
+                    Image.network(shlepas[1]),
+                    Image.network(shlepas[2]),
+                    Image.network(shlepas[3])
+                  ],
+                )),
+            Container(
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.7),
+                    borderRadius: BorderRadius.circular(3)),
+                child: Text('  ${activePage + 1}/4  ',
+                    style: TextStyle(color: Colors.white, fontSize: 11)),
+                margin: EdgeInsets.all(20.5))
+          ]),
+          Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "Пропал кот",
+                    style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(height: 13),
+                  Text("Красноармейская улица, 37, Ростов-на-Дону",
+                      style:
+                          TextStyle(fontSize: 13, fontWeight: FontWeight.w400)),
+                  SizedBox(height: 6),
+                  Text("Показать на карте",
+                      style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                          color: Color.fromRGBO(37, 138, 86, 1))),
+                  SizedBox(height: 20),
+                  Text(
+                      "На Красноармейской пропал каракал. Предположительно выпрыгнул через открытое окно. Отзывается на свою кличку “Шлёпа” или “Русский кот”. Очень любит пельмени. Клеймо отсутствует, полное телосложение. Чистый и ухоженный, людей не боится.",
+                      style: TextStyle(
+                          fontSize: 13.2, fontWeight: FontWeight.w300)),
+                ],
+              ))
+        ]),
       ),
     );
   }
