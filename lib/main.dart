@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -90,30 +89,29 @@ class _MyHomePageState extends State<MyHomePage> {
           ]),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-                height: 500,
-                child: PageView(
-                  scrollDirection: Axis.horizontal,
-                  physics: BouncingScrollPhysics(),
-                  children: pages,
-                ))
-          ],
-        ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                  height: 250,
+                  child: PageView(
+                    scrollDirection: Axis.horizontal,
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      Image.network(shlepas[0]),
+                      Image.network(shlepas[1]),
+                      Image.network(shlepas[2]),
+                      Image.network(shlepas[3])
+                    ],
+                  ))
+            ]),
       ),
     );
   }
 }
 
-List<Widget> pages = [
-  Container(
-    color: Colors.red,
-  ),
-  Container(
-    color: Colors.blue,
-  ),
-  Container(
-    color: Colors.green,
-  ),
+List<String> shlepas = [
+  "https://i.ytimg.com/vi/fkhzzwiy3-g/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/zDhxA8rZY4k/maxresdefault.jpg",
+  "https://i.ytimg.com/vi/OzdbnqFS6aQ/maxresdefault.jpg",
+  "https://chudo-prirody.com/uploads/posts/2021-08/1628938800_69-p-russkii-kot-shlepa-foto-80.jpg"
 ];
