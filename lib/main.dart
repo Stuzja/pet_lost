@@ -49,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _wasTap = false;
+  int activePage = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -91,18 +92,32 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                  height: 250,
-                  child: PageView(
-                    scrollDirection: Axis.horizontal,
-                    physics: const BouncingScrollPhysics(),
-                    children: [
-                      Image.network(shlepas[0]),
-                      Image.network(shlepas[1]),
-                      Image.network(shlepas[2]),
-                      Image.network(shlepas[3])
-                    ],
-                  ))
+              Stack(alignment: AlignmentDirectional.bottomCenter, children: [
+                SizedBox(
+                    height: 250,
+                    child: PageView(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      onPageChanged: (page) {
+                        setState(() {
+                          activePage = page;
+                        });
+                      },
+                      children: [
+                        Image.network(shlepas[0]),
+                        Image.network(shlepas[1]),
+                        Image.network(shlepas[2]),
+                        Image.network(shlepas[3])
+                      ],
+                    )),
+                Container(
+                    decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Text('  ${activePage + 1}/4  ',
+                        style: TextStyle(color: Colors.white)),
+                    margin: EdgeInsets.all(20.5))
+              ])
             ]),
       ),
     );
