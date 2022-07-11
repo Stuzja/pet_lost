@@ -122,7 +122,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: EdgeInsets.all(20.5))
           ]),
           Padding(
-              padding: const EdgeInsets.only(left: 22.0, top: 16.93, right: 22.0, bottom:25),
+              padding: const EdgeInsets.only(
+                  left: 22.0, top: 16.93, right: 22.0, bottom: 25),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
@@ -146,7 +147,18 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(
                           fontSize: 13.2, fontWeight: FontWeight.w300)),
                 ],
-              ))
+              )),
+          Container(
+              height: 45,
+              width:331,
+              decoration: BoxDecoration(
+                  color: const Color.fromRGBO(207, 233, 220, 1),
+                  borderRadius: BorderRadius.circular(3)),
+              child: const Align(
+                  alignment: Alignment.center,
+                  child: Text('Показать номер хозяина',
+                      style: TextStyle(
+                          fontSize: 13, fontWeight: FontWeight.w400))),),
         ]),
       ),
     );
