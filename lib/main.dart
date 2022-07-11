@@ -71,12 +71,23 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: BackButton(
-          color: Color.fromRGBO(37, 138, 86, 1),
-        ),
-      ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          leading: const BackButton(
+            color: Color.fromRGBO(37, 138, 86, 1),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.favorite_outline),
+              color: Color.fromRGBO(37, 138, 86, 1),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.upload),
+              color: const Color.fromRGBO(37, 138, 86, 1),
+            ),
+          ]),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
