@@ -117,7 +117,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text('  ${activePage + 1}/4  ',
                         style: TextStyle(color: Colors.white)),
                     margin: EdgeInsets.all(20.5))
-              ])
+              ]),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text("Пропал кот"),
+                      Text("Красноармейская улица, 37, Ростов-на-Дону"),
+                      Text("Показать на карте"),
+                      Text("На Красноармейской пропал каракал. Предположительно выпрыгнул через открытое окно. Отзывается на свою кличку “Шлёпа” или “Русский кот”. Очень любит пельмени. Клеймо отсутствует, полное телосложение. Чистый и ухоженный, людей не боится."),
+                    ],
+                  ))
             ]),
       ),
     );
