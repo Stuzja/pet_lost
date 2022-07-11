@@ -122,9 +122,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 margin: EdgeInsets.all(20.5))
           ]),
           Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left: 22.0, top: 16.93, right: 22.0, bottom:25),
               child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
                   Text(
                     "Пропал кот",
