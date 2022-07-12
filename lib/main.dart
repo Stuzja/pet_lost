@@ -140,11 +140,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       style:
                           TextStyle(fontSize: 13, fontWeight: FontWeight.w400)),
                   const SizedBox(height: 6),
-                  const Text("Показать на карте",
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w400,
-                          color: Color.fromRGBO(37, 138, 86, 1))),
+                  GestureDetector(
+                      onTap: () {
+                        print('1');
+                      },
+                      child: const Text("Показать на карте",
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromRGBO(37, 138, 86, 1)))),
                   const SizedBox(height: 20),
                   const Text(
                       "На Красноармейской пропал каракал. Предположительно выпрыгнул через открытое окно. Отзывается на свою кличку “Шлёпа” или “Русский кот”. Очень любит пельмени. Клеймо отсутствует, полное телосложение. Чистый и ухоженный, людей не боится.",
@@ -154,12 +158,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   showNumber
                       ? Container(
                           height: 45,
-                          child: const Center(
-                              child: Text('8-800-555-35-35',
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.black))))
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3)),
+                          child: Center(
+                              child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.white,
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                showNumber = !showNumber;
+                              });
+                            },
+                            child: const Center(
+                                child: Text('8-800-555-35-35',
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.black))),
+                          )))
                       : Container(
                           height: 45,
                           decoration: BoxDecoration(
@@ -171,7 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             onPressed: () {
                               setState(() {
-                                showNumber = true;
+                               showNumber = !showNumber;
                               });
                             },
                             child: const Center(
@@ -348,16 +366,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               )),
           Container(
-            color: const Color.fromRGBO(246, 246, 246, 1),
-            padding: const EdgeInsets.symmetric(horizontal: 22),
-            child: Column(
-                 children: [ BottomWidget(mainTitle: "PET911", arrTitles: firstTitle),
-                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-                 BottomWidget(mainTitle: "УСКОРЬТЕ ПОИСК ПИТОМЦА", arrTitles: secondTitle),
-                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-                 BottomWidget(mainTitle: "ПОМОЩЬ", arrTitles: thirdTitle),
-                 ]),
-          )
+              color: const Color.fromRGBO(246, 246, 246, 1),
+              padding: const EdgeInsets.symmetric(horizontal: 22),
+              child: Column(children: [
+                BottomWidget(mainTitle: "PET911", arrTitles: firstTitle),
+                const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
+                BottomWidget(
+                    mainTitle: "УСКОРЬТЕ ПОИСК ПИТОМЦА",
+                    arrTitles: secondTitle),
+                const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
+                BottomWidget(mainTitle: "ПОМОЩЬ", arrTitles: thirdTitle),
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                  const SizedBox(height: 20),
+                  const Text("СВЯЗАТЬСЯ С НАМИ",
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w400, fontSize: 14)),
+                  const SizedBox(height: 20),
+                ]),
+              ]))
         ]),
       ),
     );
