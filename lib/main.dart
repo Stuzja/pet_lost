@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_lost/widgets/footer.dart';
 import 'package:pet_lost/widgets/comment.dart';
 import 'package:pet_lost/widgets/otherlostpet.dart';
 
@@ -322,6 +323,40 @@ class _MyHomePageState extends State<MyHomePage> {
               comments[5],
               comments[6],
             ],
+          ),
+          Padding(
+              padding: const EdgeInsets.only(left: 22.0, right: 22.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
+                  const SizedBox(height: 20),
+                  Container(
+                      height: 23,
+                      child: Align(
+                          alignment: Alignment.center,
+                          child: TextButton.icon(
+                              onPressed: () {},
+                              label: const Text("Пожаловаться на объявление"),
+                              icon: const Icon(Icons.warning_amber_rounded),
+                              style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        const Color.fromRGBO(37, 138, 86, 1)),
+                              )))),
+                  const SizedBox(height: 22),
+                ],
+              )),
+          Container(
+            color: const Color.fromRGBO(246, 246, 246, 1),
+            padding: const EdgeInsets.symmetric(horizontal: 22),
+            child: Column(
+                 children: [ BottomWidget(mainTitle: "PET911", arrTitles: firstTitle),
+                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
+                 BottomWidget(mainTitle: "УСКОРЬТЕ ПОИСК ПИТОМЦА", arrTitles: secondTitle),
+                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
+                 BottomWidget(mainTitle: "ПОМОЩЬ", arrTitles: thirdTitle),
+                 ]),
           )
         ]),
       ),
