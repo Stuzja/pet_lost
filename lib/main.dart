@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_lost/widgets/comment.dart';
 import 'package:pet_lost/widgets/otherlostpet.dart';
@@ -53,7 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _wasTap = false;
   int activePage = 0;
   bool showNumber = false;
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -291,16 +291,25 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             color: const Color.fromRGBO(246, 246, 246, 1),
             height: 54,
-            child: const SizedBox(
-              height:35,
-              width: 331,
-                child: TextField(
-                  
+            child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
+                child: const TextField(
                     decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              labelText: 'Ваш комментарий...',
-            ))),
+                        suffixText: "Отпр. ",
+                        suffixStyle: TextStyle(
+                            color: Color.fromRGBO(37, 138, 86, 0.6),
+                            fontSize: 11),
+                        border: OutlineInputBorder(),
+                        filled: true,
+                        fillColor: Colors.white,
+                        labelText: 'Ваш комментарий...',
+                        labelStyle: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 11,
+                            color: Color.fromRGBO(151, 151, 153, 1))))),
           ),
+          const SizedBox(height: 8),
           Column(
             children: [
               Container(
