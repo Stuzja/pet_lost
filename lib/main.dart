@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_lost/widgets/otherlostpet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -204,21 +205,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                   color: Color.fromRGBO(151, 151, 153, 1))),
+                          SizedBox(height: 16),
                           Text("Пол питомца",
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                   color: Color.fromRGBO(151, 151, 153, 1))),
+                          SizedBox(height: 16),
                           Text("Добавлено",
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                   color: Color.fromRGBO(151, 151, 153, 1))),
+                          SizedBox(height: 16),
                           Text("Найден(а)",
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                   color: Color.fromRGBO(151, 151, 153, 1))),
+                          SizedBox(height: 16),
                           Text("Имя хозяина",
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
@@ -235,21 +240,25 @@ class _MyHomePageState extends State<MyHomePage> {
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                 )),
+                            SizedBox(height: 16),
                             Text("Мужской",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                 )),
+                            SizedBox(height: 16),
                             Text("Вт, 21.09.2021",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                 )),
+                            SizedBox(height: 16),
                             Text("Вт, 21.09.2021",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                 )),
+                            SizedBox(height: 16),
                             Text("Владимир",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
@@ -257,7 +266,21 @@ class _MyHomePageState extends State<MyHomePage> {
                                 )),
                           ])
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 35),
+                  const Text("Похожие пропавшие",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+                  SizedBox(
+                      height: 291,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          other[0],
+                          const SizedBox(width: 15),
+                          other[1]
+                        ],
+                      ))
                 ],
               )),
         ]),
