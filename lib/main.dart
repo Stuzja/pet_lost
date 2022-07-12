@@ -182,6 +182,82 @@ class _MyHomePageState extends State<MyHomePage> {
                   const Text("Поделиться",
                       style:
                           TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+                  const SizedBox(height: 15),
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {}, icon: const Icon(Icons.share)),
+                      IconButton(
+                          onPressed: () {}, icon: const Icon(Icons.share)),
+                      IconButton(
+                          onPressed: () {}, icon: const Icon(Icons.share)),
+                    ],
+                  ),
+                  const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
+                  Row(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text("Номер объявления",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: Color.fromRGBO(151, 151, 153, 1))),
+                          Text("Пол питомца",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: Color.fromRGBO(151, 151, 153, 1))),
+                          Text("Добавлено",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: Color.fromRGBO(151, 151, 153, 1))),
+                          Text("Найден(а)",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: Color.fromRGBO(151, 151, 153, 1))),
+                          Text("Имя хозяина",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: Color.fromRGBO(151, 151, 153, 1))),
+                        ],
+                      ),
+                      const SizedBox(width: 40),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text("RF488198",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                )),
+                            Text("Мужской",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                )),
+                            Text("Вт, 21.09.2021",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                )),
+                            Text("Вт, 21.09.2021",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                )),
+                            Text("Владимир",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                )),
+                          ])
+                    ],
+                  )
                 ],
               )),
         ]),
