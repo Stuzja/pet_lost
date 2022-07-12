@@ -50,6 +50,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _wasTap = false;
   int activePage = 0;
+  bool showNumber = false;
 
   @override
   Widget build(BuildContext context) {
@@ -123,42 +124,66 @@ class _MyHomePageState extends State<MyHomePage> {
           ]),
           Padding(
               padding: const EdgeInsets.only(
-                  left: 22.0, top: 16.93, right: 22.0, bottom: 25),
+                  left: 22.0, top: 16.93, right: 22.0, bottom: 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     "Пропал кот",
                     style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
                   ),
-                  SizedBox(height: 13),
-                  Text("Красноармейская улица, 37, Ростов-на-Дону",
+                  const SizedBox(height: 13),
+                  const Text("Красноармейская улица, 37, Ростов-на-Дону",
                       style:
                           TextStyle(fontSize: 13, fontWeight: FontWeight.w400)),
-                  SizedBox(height: 6),
-                  Text("Показать на карте",
+                  const SizedBox(height: 6),
+                  const Text("Показать на карте",
                       style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w400,
                           color: Color.fromRGBO(37, 138, 86, 1))),
-                  SizedBox(height: 20),
-                  Text(
+                  const SizedBox(height: 20),
+                  const Text(
                       "На Красноармейской пропал каракал. Предположительно выпрыгнул через открытое окно. Отзывается на свою кличку “Шлёпа” или “Русский кот”. Очень любит пельмени. Клеймо отсутствует, полное телосложение. Чистый и ухоженный, людей не боится.",
                       style: TextStyle(
                           fontSize: 13.2, fontWeight: FontWeight.w300)),
+                  const SizedBox(height: 25),
+                  showNumber
+                      ? Container(
+                          height: 45,
+                          child: const Center(
+                              child: Text('8-800-555-35-35',
+                                  style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black))))
+                      : Container(
+                          height: 45,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3)),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: const Color.fromRGBO(207, 233, 220, 1),
+                              elevation: 0,
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                showNumber = true;
+                              });
+                            },
+                            child: const Center(
+                                child: Text('Показать номер хозяина',
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.black))),
+                          )),
+                  const SizedBox(height: 17),
+                  const Text("Поделиться",
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
                 ],
               )),
-          Container(
-              height: 45,
-              width:331,
-              decoration: BoxDecoration(
-                  color: const Color.fromRGBO(207, 233, 220, 1),
-                  borderRadius: BorderRadius.circular(3)),
-              child: const Align(
-                  alignment: Alignment.center,
-                  child: Text('Показать номер хозяина',
-                      style: TextStyle(
-                          fontSize: 13, fontWeight: FontWeight.w400))),),
         ]),
       ),
     );
