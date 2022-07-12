@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pet_lost/widgets/comment.dart';
 import 'package:pet_lost/widgets/otherlostpet.dart';
 
 void main() {
@@ -280,9 +281,39 @@ class _MyHomePageState extends State<MyHomePage> {
                           const SizedBox(width: 15),
                           other[1]
                         ],
-                      ))
+                      )),
+                  const SizedBox(height: 11),
+                  const Text("11 комментариев",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
                 ],
               )),
+          Container(
+            color: const Color.fromRGBO(246, 246, 246, 1),
+            height: 54,
+            child: const SizedBox(
+              height:35,
+              width: 331,
+                child: TextField(
+                  
+                    decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Ваш комментарий...',
+            ))),
+          ),
+          Column(
+            children: [
+              Container(
+                  color: const Color.fromRGBO(241, 252, 239, 1),
+                  child: comments[0]),
+              comments[1],
+              comments[2],
+              comments[3],
+              comments[4],
+              comments[5],
+              comments[6],
+            ],
+          )
         ]),
       ),
     );
