@@ -36,7 +36,8 @@ class BottomWidget extends StatelessWidget {
                                   color: Colors.black))),
                       const SizedBox(height: 15),
                     ],
-                  )
+                  ),
+                  const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
               ],
             )));
   }

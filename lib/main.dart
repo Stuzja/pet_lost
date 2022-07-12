@@ -155,50 +155,35 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: TextStyle(
                           fontSize: 13.2, fontWeight: FontWeight.w300)),
                   const SizedBox(height: 25),
-                  showNumber
-                      ? Container(
-                          height: 45,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(3)),
-                          child: Center(
-                              child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.white,
-                              elevation: 0,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                showNumber = !showNumber;
-                              });
-                            },
-                            child: const Center(
-                                child: Text('8-800-555-35-35',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.black))),
-                          )))
-                      : Container(
-                          height: 45,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(3)),
+                  Container(
+                      height: 45,
+                      decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(3)),
+                      child: Center(
                           child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: const Color.fromRGBO(207, 233, 220, 1),
-                              elevation: 0,
-                            ),
-                            onPressed: () {
-                              setState(() {
-                               showNumber = !showNumber;
-                              });
-                            },
-                            child: const Center(
-                                child: Text('Показать номер хозяина',
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.black))),
-                          )),
+                              style: ElevatedButton.styleFrom(
+                                primary: showNumber
+                                    ? Colors.white
+                                    : const Color.fromRGBO(207, 233, 220, 1),
+                                elevation: 0,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  showNumber = !showNumber;
+                                });
+                              },
+                              child: Center(
+                                  child: showNumber
+                                      ? const Text('8-800-555-35-35',
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.black))
+                                      : const Text('Показать номер хозяина',
+                                          style: TextStyle(
+                                              fontSize: 13,
+                                              fontWeight: FontWeight.w400,
+                                              color: Colors.black)))))),
                   const SizedBox(height: 17),
                   const Text("Поделиться",
                       style:
@@ -349,7 +334,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
                   const SizedBox(height: 20),
-                  Container(
+                  SizedBox(
                       height: 23,
                       child: Align(
                           alignment: Alignment.center,
@@ -370,17 +355,55 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 22),
               child: Column(children: [
                 BottomWidget(mainTitle: "PET911", arrTitles: firstTitle),
-                const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
                 BottomWidget(
                     mainTitle: "УСКОРЬТЕ ПОИСК ПИТОМЦА",
                     arrTitles: secondTitle),
-                const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
                 BottomWidget(mainTitle: "ПОМОЩЬ", arrTitles: thirdTitle),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   const SizedBox(height: 20),
                   const Text("СВЯЗАТЬСЯ С НАМИ",
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 14)),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Column(children: const [
+                        Text("8 (800) 350-06-10",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(fontSize: 19)),
+                        Text("Пн-Пт с 9:00 до 18:00 (МСК)",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                fontSize: 10, fontWeight: FontWeight.w400))
+                      ]),
+                      Row(children: [
+                        SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.square))),
+                        SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.square))),
+                        SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.square))),
+                        SizedBox(
+                            height: 20,
+                            width: 20,
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: const Icon(Icons.square))),
+                      ])
+                    ],
+                  ),
                   const SizedBox(height: 20),
                 ]),
               ]))
