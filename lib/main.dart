@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
+import 'package:flutter_share/flutter_share.dart';
 import 'package:pet_lost/widgets/footer.dart';
 import 'package:pet_lost/widgets/comment.dart';
 import 'package:pet_lost/widgets/socialmediaButtons.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:pet_lost/widgets/otherlostpet.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -94,7 +95,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   _wasTap ? Colors.red : const Color.fromRGBO(37, 138, 86, 1),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                
+              },
               icon: const Icon(Icons.upload),
               color: const Color.fromRGBO(37, 138, 86, 1),
             ),
@@ -392,32 +395,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   ]),
                   const SizedBox(width: 33),
                   Row(children: [
-                  buildSmallSocialButton(
-                    icon: FontAwesomeIcons.facebookSquare,
-                    onClicked: () => share(SocialMedia.facebook),
-                  ),
-                  const SizedBox(
-                    width: 11,
-                  ),
-                  buildSmallSocialButton(
-                    icon: FontAwesomeIcons.twitter,
-                    onClicked: () => share(SocialMedia.twitter),
-                  ),
-                  const SizedBox(
-                    width: 11,
-                  ),
-                 buildSmallSocialButton(
-                    icon: FontAwesomeIcons.vk,
-                    onClicked: () => share(SocialMedia.twitter),
-                  ),
-                  const SizedBox(
-                    width: 11,
-                  ),
-                 buildSmallSocialButton(
-                    icon: FontAwesomeIcons.odnoklassniki,
-                    onClicked: () => share(SocialMedia.twitter),
-                  ),
-                ]),
+                    buildSmallSocialButton(
+                      icon: FontAwesomeIcons.vk,
+                      onClicked: () => share(SocialMedia.vk),
+                    ),
+                    const SizedBox(
+                      width: 11,
+                    ),
+                    buildSmallSocialButton(
+                      icon: FontAwesomeIcons.odnoklassniki,
+                      onClicked: () => share(SocialMedia.ok),
+                    ),
+                    const SizedBox(
+                      width: 11,
+                    ),
+                    buildSmallSocialButton(
+                      icon: FontAwesomeIcons.facebookSquare,
+                      onClicked: () => share(SocialMedia.facebook),
+                    ),
+                    const SizedBox(
+                      width: 11,
+                    ),
+                    buildSmallSocialButton(
+                      icon: FontAwesomeIcons.twitter,
+                      onClicked: () => share(SocialMedia.twitter),
+                    ),
+                  ]),
                 ]),
               ]),
             ])),

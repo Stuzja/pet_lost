@@ -29,7 +29,7 @@ Future share(SocialMedia socialPlatform) async {
     SocialMedia.facebook: 'https://www.facebook.com/sharer.php?u=&t=$text',
     SocialMedia.twitter: 'https://twitter.com/share?url={}&text',
     SocialMedia.vk: 'http://vk.com/share.php?url=&title=&description=&image=&noparse=true',
-    SocialMedia.ok: 'http://vk.com/share.php?url=&title=&description=&image=&noparse=true'
+    SocialMedia.ok: 'https://www.youtube.com/watch?v=_6skVoBXylA&ab_channel=%23Sekletsoff'
   };
   final url = urls[socialPlatform]!;
 
