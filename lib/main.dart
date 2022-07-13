@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
-import 'package:flutter_share/flutter_share.dart';
 import 'package:pet_lost/widgets/footer.dart';
 import 'package:pet_lost/widgets/comment.dart';
 import 'package:pet_lost/widgets/socialmediaButtons.dart';
@@ -96,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             IconButton(
               onPressed: () {
-                
+                Share.share("hhh");
               },
               icon: const Icon(Icons.upload),
               color: const Color.fromRGBO(37, 138, 86, 1),
@@ -217,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   buildBigSocialButton(
                     icon: FontAwesomeIcons.vk,
                     color: const Color.fromRGBO(39, 135, 245, 1),
-                    onClicked: () => share(SocialMedia.twitter),
+                    onClicked: () => share(SocialMedia.vk),
                   ),
                 ]),
                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),

@@ -26,10 +26,10 @@ Widget buildBigSocialButtons() => Row(children: [
 Future share(SocialMedia socialPlatform) async {
   final text = 'Пропал питомец';
   final urls = {
-    SocialMedia.facebook: 'https://www.facebook.com/sharer.php?u=&t=$text',
-    SocialMedia.twitter: 'https://twitter.com/share?url={}&text',
-    SocialMedia.vk: 'http://vk.com/share.php?url=&title=&description=&image=&noparse=true',
-    SocialMedia.ok: 'https://www.youtube.com/watch?v=_6skVoBXylA&ab_channel=%23Sekletsoff'
+    SocialMedia.facebook: 'https://www.facebook.com/sharer/sharer.php?u=&picture=',
+    SocialMedia.twitter: 'https://twitter.com/share?url=&text=$text&hashtags=&via=',
+    SocialMedia.vk: 'https://vk.com/share.php?url=&title=&description=&comment=Пропал питомец&image=&noparse=true',
+    SocialMedia.ok: 'https://ok.ru/post'
   };
   final url = urls[socialPlatform]!;
 
