@@ -25,7 +25,7 @@ class BottomWidget extends StatelessWidget {
                   Column(
                     children: [
                       FlatButton(
-                          height:10,
+                          height: 10,
                           minWidth: 0,
                           onPressed: () {},
                           child: Text(title,
@@ -37,7 +37,7 @@ class BottomWidget extends StatelessWidget {
                       const SizedBox(height: 15),
                     ],
                   ),
-                  const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
+                const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
               ],
             )));
   }
@@ -66,3 +66,26 @@ List<String> thirdTitle = [
   "Станьте волонтёром",
   "Поддержите проект",
 ];
+
+class LastPartButtonWidget extends StatelessWidget {
+  final String text;
+  const LastPartButtonWidget({Key? key, required this.text}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+        child: Column(children: [
+      FlatButton(
+          height: 10,
+          minWidth: 0,
+          onPressed: () {},
+          child: Text(text,
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 10,
+                  color: Color.fromRGBO(140, 140, 140, 1)))),
+      const SizedBox(height: 8),
+    ]));
+  }
+}
