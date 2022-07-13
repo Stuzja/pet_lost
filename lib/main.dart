@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pet_lost/widgets/footer.dart';
 import 'package:pet_lost/widgets/comment.dart';
+import 'package:pet_lost/widgets/socialmediaButtons.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:pet_lost/widgets/otherlostpet.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -133,7 +135,10 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 const Text(
                   "Пропал кот",
-                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500, fontFamily: "MuseoCyrl"),
+                  style: TextStyle(
+                      fontSize: 23,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "MuseoCyrl"),
                 ),
                 const SizedBox(height: 13),
                 const Text("Красноармейская улица, 37, Ростов-на-Дону",
@@ -189,13 +194,29 @@ class _MyHomePageState extends State<MyHomePage> {
                     style:
                         TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
                 const SizedBox(height: 15),
-                Row(
-                  children: [
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-                  ],
-                ),
+                Row(children: [
+                  buildBigSocialButton(
+                    icon: FontAwesomeIcons.facebookSquare,
+                    color: Color(0xFF0075fc),
+                    onClicked: () => share(SocialMedia.facebook),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  buildBigSocialButton(
+                    icon: FontAwesomeIcons.twitter,
+                    color: Color(0xFF1da1f2),
+                    onClicked: () => share(SocialMedia.twitter),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  buildBigSocialButton(
+                    icon: FontAwesomeIcons.vk,
+                    color: const Color.fromRGBO(39, 135, 245, 1),
+                    onClicked: () => share(SocialMedia.twitter),
+                  ),
+                ]),
                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
                 Row(
                   children: [
@@ -271,8 +292,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 const SizedBox(height: 35),
                 const Text("Похожие пропавшие",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 20, fontFamily: "MuseoCyrl")),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        fontFamily: "MuseoCyrl")),
                 SizedBox(
                     height: 291,
                     child: ListView(
@@ -281,8 +304,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     )),
                 const SizedBox(height: 11),
                 const Text("11 комментариев",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 20, fontFamily: "MuseoCyrl")),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                        fontFamily: "MuseoCyrl")),
               ],
             )),
         Container(
@@ -365,30 +390,34 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: TextStyle(
                             fontSize: 10, fontWeight: FontWeight.w400))
                   ]),
-                  const SizedBox(width: 43),
-                  SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.square))),
-                  const SizedBox(width: 11),
-                  SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.square))),
-                  const SizedBox(width: 11),
-                  SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.square))),
-                  const SizedBox(width: 11),
-                  SizedBox(
-                      height: 20,
-                      width: 20,
-                      child: IconButton(
-                          onPressed: () {}, icon: const Icon(Icons.square))),
+                  const SizedBox(width: 33),
+                  Row(children: [
+                  buildSmallSocialButton(
+                    icon: FontAwesomeIcons.facebookSquare,
+                    onClicked: () => share(SocialMedia.facebook),
+                  ),
+                  const SizedBox(
+                    width: 11,
+                  ),
+                  buildSmallSocialButton(
+                    icon: FontAwesomeIcons.twitter,
+                    onClicked: () => share(SocialMedia.twitter),
+                  ),
+                  const SizedBox(
+                    width: 11,
+                  ),
+                 buildSmallSocialButton(
+                    icon: FontAwesomeIcons.vk,
+                    onClicked: () => share(SocialMedia.twitter),
+                  ),
+                  const SizedBox(
+                    width: 11,
+                  ),
+                 buildSmallSocialButton(
+                    icon: FontAwesomeIcons.odnoklassniki,
+                    onClicked: () => share(SocialMedia.twitter),
+                  ),
+                ]),
                 ]),
               ]),
             ])),
