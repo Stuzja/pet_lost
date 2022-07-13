@@ -21,14 +21,50 @@ Widget buildBigSocialButtons() => Row(children: [
       const SizedBox(
         width: 8,
       ),
+      buildBigSocialButton(
+        icon: FontAwesomeIcons.vk,
+        color: const Color.fromRGBO(39, 135, 245, 1),
+        onClicked: () => share(SocialMedia.vk),
+      ),
+    ]);
+
+Widget buildSmallSocialButtons() => Row(children: [
+      buildSmallSocialButton(
+        icon: FontAwesomeIcons.vk,
+        onClicked: () => share(SocialMedia.vk),
+      ),
+      const SizedBox(
+        width: 11,
+      ),
+      buildSmallSocialButton(
+        icon: FontAwesomeIcons.odnoklassniki,
+        onClicked: () => share(SocialMedia.ok),
+      ),
+      const SizedBox(
+        width: 11,
+      ),
+      buildSmallSocialButton(
+        icon: FontAwesomeIcons.facebookSquare,
+        onClicked: () => share(SocialMedia.facebook),
+      ),
+      const SizedBox(
+        width: 11,
+      ),
+      buildSmallSocialButton(
+        icon: FontAwesomeIcons.twitter,
+        onClicked: () => share(SocialMedia.twitter),
+      ),
     ]);
 
 Future share(SocialMedia socialPlatform) async {
   final text = 'Пропал питомец';
   final urls = {
-    SocialMedia.facebook: 'https://www.facebook.com/sharer/sharer.php?u=&picture=',
-    SocialMedia.twitter: 'https://twitter.com/share?url=&text=$text&hashtags=&via=',
-    SocialMedia.vk: 'https://vk.com/share.php?url=&title=&description=&comment=Пропал питомец&image=&noparse=true',
+    SocialMedia.facebook:
+        'https://www.facebook.com/sharer/sharer.php?u=&picture=',
+    SocialMedia.twitter:
+        'https://twitter.com/share?url=&text=$text&hashtags=&via=',
+    SocialMedia.vk:
+        'https://vk.com/share.php?url=&title=&description=&comment=Пропал питомец&image=&noparse=true',
     SocialMedia.ok: 'https://ok.ru/post'
   };
   final url = urls[socialPlatform]!;

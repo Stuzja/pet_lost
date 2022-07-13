@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 
 class CommentWidget extends StatelessWidget {
@@ -13,7 +12,7 @@ class CommentWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         child: Container(
-            width: 375,
+            width:  MediaQuery.of(context).size.width,
             margin: const EdgeInsets.only(
                   left: 22.0,right: 22.0),
             child: Column(
