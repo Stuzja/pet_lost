@@ -133,12 +133,12 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 const Text(
                   "Пропал кот",
-                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 23, fontWeight: FontWeight.w500, fontFamily: "MuseoCyrl"),
                 ),
                 const SizedBox(height: 13),
                 const Text("Красноармейская улица, 37, Ростов-на-Дону",
                     style:
-                        TextStyle(fontSize: 13, fontWeight: FontWeight.w400)),
+                        TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
                 const SizedBox(height: 6),
                 GestureDetector(
                     onTap: () {
@@ -153,7 +153,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Text(
                     "На Красноармейской пропал каракал. Предположительно выпрыгнул через открытое окно. Отзывается на свою кличку “Шлёпа” или “Русский кот”. Очень любит пельмени. Клеймо отсутствует, полное телосложение. Чистый и ухоженный, людей не боится.",
                     style:
-                        TextStyle(fontSize: 13.2, fontWeight: FontWeight.w300)),
+                        TextStyle(fontSize: 13.2, fontWeight: FontWeight.w400)),
                 const SizedBox(height: 25),
                 Container(
                     height: 45,
@@ -272,7 +272,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 35),
                 const Text("Похожие пропавшие",
                     style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 20, fontFamily: "MuseoCyrl")),
                 SizedBox(
                     height: 291,
                     child: ListView(
@@ -282,7 +282,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 11),
                 const Text("11 комментариев",
                     style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 20, fontFamily: "MuseoCyrl")),
               ],
             )),
         Container(
