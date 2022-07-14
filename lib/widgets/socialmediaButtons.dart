@@ -57,7 +57,7 @@ Widget buildSmallSocialButtons() => Row(children: [
     ]);
 
 Future share(SocialMedia socialPlatform) async {
-  final text = 'Пропал питомец';
+  const text = 'Пропал питомец';
   final urls = {
     SocialMedia.facebook:
         'https://www.facebook.com/sharer/sharer.php?u=&picture=',

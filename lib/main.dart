@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:share/share.dart';
+import 'package:pet_lost/widgets/dopinfo.dart';
 import 'package:pet_lost/widgets/footer.dart';
+import 'package:pet_lost/widgets/main_info.dart';
+import 'package:pet_lost/widgets/report.dart';
+import 'package:share/share.dart';
+import 'package:pet_lost/widgets/footer_part.dart';
 import 'package:pet_lost/widgets/comment.dart';
 import 'package:pet_lost/widgets/socialmediaButtons.dart';
 import 'package:pet_lost/widgets/otherlostpet.dart';
@@ -123,32 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Пропал кот",
-                  style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "MuseoCyrl"),
-                ),
-                const SizedBox(height: 13),
-                const Text("Красноармейская улица, 37, Ростов-на-Дону",
-                    style:
-                        TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
-                const SizedBox(height: 6),
-                GestureDetector(
-                    onTap: () {
-                      print('1');
-                    },
-                    child: const Text("Показать на карте",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromRGBO(37, 138, 86, 1)))),
-                const SizedBox(height: 20),
-                const Text(
-                    "На Красноармейской пропал каракал. Предположительно выпрыгнул через открытое окно. Отзывается на свою кличку “Шлёпа” или “Русский кот”. Очень любит пельмени. Клеймо отсутствует, полное телосложение. Чистый и ухоженный, людей не боится.",
-                    style:
-                        TextStyle(fontSize: 13.2, fontWeight: FontWeight.w400)),
+                MainInfo(),
                 const SizedBox(height: 25),
                 Container(
                     height: 45,
@@ -186,79 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 15),
                 buildBigSocialButtons(),
                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-                Row(
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text("Номер объявления",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                color: Color.fromRGBO(151, 151, 153, 1))),
-                        SizedBox(height: 16),
-                        Text("Пол питомца",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                color: Color.fromRGBO(151, 151, 153, 1))),
-                        SizedBox(height: 16),
-                        Text("Добавлено",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                color: Color.fromRGBO(151, 151, 153, 1))),
-                        SizedBox(height: 16),
-                        Text("Найден(а)",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                color: Color.fromRGBO(151, 151, 153, 1))),
-                        SizedBox(height: 16),
-                        Text("Имя хозяина",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                color: Color.fromRGBO(151, 151, 153, 1))),
-                      ],
-                    ),
-                    const SizedBox(width: 40),
-                    Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text("RF488198",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                              )),
-                          SizedBox(height: 16),
-                          Text("Мужской",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                              )),
-                          SizedBox(height: 16),
-                          Text("Вт, 21.09.2021",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                              )),
-                          SizedBox(height: 16),
-                          Text("Вт, 21.09.2021",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                              )),
-                          SizedBox(height: 16),
-                          Text("Владимир",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                              )),
-                        ])
-                  ],
-                ),
+                DopInfoWidget(),
                 const SizedBox(height: 35),
                 const Text("Похожие пропавшие",
                     style: TextStyle(
@@ -306,6 +213,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       filled: true,
                       fillColor: Colors.white,
                       labelText: 'Ваш комментарий...',
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 3, horizontal: 5),
                       labelStyle: const TextStyle(
                           fontWeight: FontWeight.w400,
                           fontSize: 11,
@@ -327,70 +236,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
 
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22.0),
-            child: Column(
-              children: [
-                const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-                Container(
-                    height: 65,
-                    child: Center(
-                        child: TextButton.icon(
-                            onPressed: () {},
-                            label: const Text("Пожаловаться на объявление"),
-                            icon: const Icon(Icons.warning_amber_rounded),
-                            style: ButtonStyle(
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  const Color.fromRGBO(37, 138, 86, 1)),
-                            )))),
-              ],
-            )),
-
-        Container(
-            color: const Color.fromRGBO(246, 246, 246, 1),
-            padding: const EdgeInsets.symmetric(horizontal: 22),
-            child: Column(children: [
-              BottomWidget(mainTitle: "PET911", arrTitles: firstTitle),
-              BottomWidget(
-                  mainTitle: "УСКОРЬТЕ ПОИСК ПИТОМЦА", arrTitles: secondTitle),
-              BottomWidget(mainTitle: "ПОМОЩЬ", arrTitles: thirdTitle),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                const SizedBox(height: 20),
-                const Text("СВЯЗАТЬСЯ С НАМИ",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w400, fontSize: 14)),
-                const SizedBox(height: 20),
-                Row(children: [
-                  Column(children: const [
-                    Text("8 (800) 350-06-10",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(fontSize: 19)),
-                    Text("Пн-Пт с 9:00 до 18:00 (МСК)",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontSize: 10, fontWeight: FontWeight.w400))
-                  ]),
-                  const SizedBox(width: 33),
-                  buildSmallSocialButtons(),
-                ]),
-              ]),
-            ])),
-        const SizedBox(height: 29),
-        const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-        Padding(
-            padding: const EdgeInsets.only(left: 22.0, right: 22.0),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  LastPartButtonWidget(
-                      text: "Пропавшие и найденные животные России"),
-                  LastPartButtonWidget(
-                      text: "Пропавшие и найденные животные России по породам"),
-                  SizedBox(height: 7),
-                  LastPartButtonWidget(text: "Политика конфеденциальности"),
-                  LastPartButtonWidget(text: "Условия пользования"),
-                ])),
-        const SizedBox(height: 55)
+        const Report(),
+        FooterWidget(),
       ])),
     );
   }

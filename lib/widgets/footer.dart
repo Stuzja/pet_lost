@@ -1,91 +1,66 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pet_lost/widgets/footer_part.dart';
+import 'package:pet_lost/widgets/socialmediaButtons.dart';
 
-class BottomWidget extends StatelessWidget {
-  final String mainTitle;
-  final List<String> arrTitles;
-
-  const BottomWidget(
-      {Key? key, required this.mainTitle, required this.arrTitles})
-      : super(key: key);
-
+class FooterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        child: Align(
-            alignment: Alignment.centerLeft,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 20),
-                Text(mainTitle,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w400, fontSize: 14)),
-                const SizedBox(height: 20),
-                for (var title in arrTitles)
-                  Column(
-                    children: [
-                      FlatButton(
-                          height: 10,
-                          minWidth: 0,
-                          onPressed: () {},
-                          child: Text(title,
-                              textAlign: TextAlign.left,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 13,
-                                  color: Colors.black))),
-                      const SizedBox(height: 15),
-                    ],
-                  ),
-                const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-              ],
-            )));
-  }
-}
-
-List<String> firstTitle = [
-  "Разместите объявление",
-  "Платные услуги",
-  "Полезные советы",
-  "Отзывы",
-  "Вопросы-ответы",
-  "О нас",
-  "Контакты"
-];
-
-List<String> secondTitle = [
-  "Распространите объявление в социальных сетях",
-  "Оповестите клиники и приюты",
-  "Сообщите волонтёрам о пропаже",
-  "Оповестите жителей района",
-  "Создайте премиум-объявление",
-  "Получайте уведомления о похожих питомцах",
-];
-
-List<String> thirdTitle = [
-  "Станьте волонтёром",
-  "Поддержите проект",
-];
-
-class LastPartButtonWidget extends StatelessWidget {
-  final String text;
-  const LastPartButtonWidget({Key? key, required this.text}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-        child: Column(children: [
-      FlatButton(
-          height: 10,
-          minWidth: 0,
-          onPressed: () {},
-          child: Text(text,
-              textAlign: TextAlign.left,
-              style: const TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 10,
-                  color: Color.fromRGBO(140, 140, 140, 1)))),
-      const SizedBox(height: 8),
-    ]));
+        child: Container(
+            color: const Color.fromRGBO(246, 246, 246, 1),
+            child: Column(children: [
+              Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 22),
+                  child: Column(children: [
+                    BottomWidget(mainTitle: "PET911", arrTitles: firstTitle),
+                    BottomWidget(
+                        mainTitle: "УСКОРЬТЕ ПОИСК ПИТОМЦА",
+                        arrTitles: secondTitle),
+                    BottomWidget(mainTitle: "ПОМОЩЬ", arrTitles: thirdTitle),
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 20),
+                          const Text("СВЯЗАТЬСЯ С НАМИ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400, fontSize: 14)),
+                          const SizedBox(height: 20),
+                          Row(children: [
+                            Column(children: const [
+                              Text("8 (800) 350-06-10",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(fontSize: 19)),
+                              Text("Пн-Пт с 9:00 до 18:00 (МСК)",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w400))
+                            ]),
+                            const Spacer(),
+                            buildSmallSocialButtons(),
+                            const SizedBox(height: 29),
+                          ]),
+                        ]),
+                  ])),
+              Divider(),
+              Container(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        LastPartButtonWidget(
+                            text: "Пропавшие и найденные животные России"),
+                        LastPartButtonWidget(
+                            text:
+                                "Пропавшие и найденные животные России по породам"),
+                        SizedBox(height: 7),
+                        LastPartButtonWidget(
+                            text: "Политика конфеденциальности"),
+                        LastPartButtonWidget(text: "Условия пользования"),
+                      ])),
+              const SizedBox(height: 55)
+            ])));
   }
 }

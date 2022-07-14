@@ -77,10 +77,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
-    - family: MuseoCyrl    
+  fonts:
+    - family: MuseoCyrl
       fonts:
-        - asset: assets/fonts/Museo-Cyrl-500.otf
+        - asset: assets/fonts/Museo Cyrl 500.ttf
           weight: 500
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
