@@ -8,11 +8,7 @@ class MainInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const Text(
-        "Пропал кот",
-        style: TextStyle(
-            fontSize: 23, fontWeight: FontWeight.w600, fontFamily: "MuseoCyrl"),
-      ),
+      Text("Пропал кот", style: Theme.of(context).textTheme.headline1),
       const SizedBox(height: 13),
       const Text("Красноармейская улица, 37, Ростов-на-Дону",
           style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),

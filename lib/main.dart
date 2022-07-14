@@ -25,19 +25,22 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+          primarySwatch: Colors.blue,
+          textTheme: const TextTheme(
+            headline1: TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.w600,
+                fontFamily: "MuseoCyrl",
+                color: Colors.black87),
+          )),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -122,8 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ]),
 
         Padding(
-            padding: const EdgeInsets.only(
-                left: 22.0, top: 16.93, right: 22.0, bottom: 0),
+            padding: const EdgeInsets.only(left: 22.0, top: 16.93, right: 22.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -167,11 +169,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
                 DopInfoWidget(),
                 const SizedBox(height: 35),
-                const Text("Похожие пропавшие",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                        fontFamily: "MuseoCyrl")),
+                Text("Похожие пропавшие",
+                    style: Theme.of(context).textTheme.headline1),
                 SizedBox(
                     height: 291,
                     child: ListView(
@@ -179,14 +178,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [other[0], const SizedBox(width: 15), other[1]],
                     )),
                 const SizedBox(height: 11),
-                const Text("11 комментариев",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 20,
-                        fontFamily: "MuseoCyrl")),
+                Text("11 комментариев",
+                    style: Theme.of(context).textTheme.headline1),
               ],
             )),
-
+        //Ввод комментария
         Container(
           width: mediaQuery.size.width,
           color: const Color.fromRGBO(246, 246, 246, 1),
@@ -197,19 +193,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   controller: _controller,
                   decoration: InputDecoration(
                       suffixIcon: TextButton(
+                        onPressed: _controller.clear,
                         child: const Text(
                           "Отпр. ",
                           style: TextStyle(
                               color: Color.fromRGBO(37, 138, 86, 0.6),
                               fontSize: 11),
                         ),
-                        onPressed: () {
-                          setState(() {
-                            _controller.clear;
-                          });
-                        },
                       ),
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                       filled: true,
                       fillColor: Colors.white,
                       labelText: 'Ваш комментарий...',
@@ -220,7 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           fontSize: 11,
                           color: Color.fromRGBO(151, 151, 153, 1))))),
         ),
-
+        //Комменты
         const SizedBox(height: 8),
         Column(
           children: [
