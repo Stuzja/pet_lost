@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 fontFamily: "MuseoCyrl",
                 color: Colors.black87),
+                bodyText1: TextStyle(height: 1.5, fontSize: 13.2, fontWeight: FontWeight.w400)
           )),
       home: const MyHomePage(),
     );

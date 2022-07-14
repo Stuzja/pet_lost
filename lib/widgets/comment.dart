@@ -24,8 +24,7 @@ class CommentWidget extends StatelessWidget {
                         fontSize: 13, fontWeight: FontWeight.w500)),
                 const SizedBox(height: 7),
                 Text(text,
-                    style: const TextStyle(
-                        fontSize: 13.2, fontWeight: FontWeight.w300)),
+                    style: Theme.of(context).textTheme.bodyText1),
                 const SizedBox(height: 14),
                 Text(data,
                     style: const TextStyle(
