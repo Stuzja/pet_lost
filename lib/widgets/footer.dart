@@ -4,6 +4,8 @@ import 'package:pet_lost/widgets/footer_part.dart';
 import 'package:pet_lost/widgets/socialmediaButtons.dart';
 
 class FooterWidget extends StatelessWidget {
+  const FooterWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -11,7 +13,7 @@ class FooterWidget extends StatelessWidget {
             color: const Color.fromRGBO(246, 246, 246, 1),
             child: Column(children: [
               Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 22),
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
                   child: Column(children: [
                     BottomWidget(mainTitle: "PET911", arrTitles: firstTitle),
                     BottomWidget(
@@ -43,7 +45,7 @@ class FooterWidget extends StatelessWidget {
                           ]),
                         ]),
                   ])),
-              Divider(),
+              const Divider(),
               Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.symmetric(horizontal: 22),

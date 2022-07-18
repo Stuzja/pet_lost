@@ -7,7 +7,7 @@ enum SocialMedia { facebook, twitter, vk, ok }
 Widget buildBigSocialButtons() => Row(children: [
       buildBigSocialButton(
         icon: FontAwesomeIcons.facebookSquare,
-        color: Color(0xFF0075fc),
+        color: const Color(0xFF0075fc),
         onClicked: () => share(SocialMedia.facebook),
       ),
       const SizedBox(
@@ -15,7 +15,7 @@ Widget buildBigSocialButtons() => Row(children: [
       ),
       buildBigSocialButton(
         icon: FontAwesomeIcons.twitter,
-        color: Color(0xFF1da1f2),
+        color: const  Color(0xFF1da1f2),
         onClicked: () => share(SocialMedia.twitter),
       ),
       const SizedBox(
@@ -67,10 +67,10 @@ Future share(SocialMedia socialPlatform) async {
         'https://vk.com/share.php?url=&title=&description=&comment=Пропал питомец&image=&noparse=true',
     SocialMedia.ok: 'https://ok.ru/post'
   };
-  final url = urls[socialPlatform]!;
+  final url = Uri.parse(urls[socialPlatform]!);
 
-  if (await canLaunch(url)) {
-    await launch(url);
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
   }
 }
 
@@ -80,13 +80,13 @@ Widget buildBigSocialButton({
   required VoidCallback onClicked,
 }) =>
     InkWell(
-      child: Container(
+      onTap: onClicked,
+      child: SizedBox(
           width: 44,
           height: 44,
           child: Center(
             child: FaIcon(icon, color: color, size: 44),
           )),
-      onTap: onClicked,
     );
 
 Widget buildSmallSocialButton({
@@ -94,11 +94,11 @@ Widget buildSmallSocialButton({
   required VoidCallback onClicked,
 }) =>
     InkWell(
-      child: Container(
+      onTap: onClicked,
+      child: SizedBox(
           width: 19,
           height: 19,
           child: Center(
             child: FaIcon(icon, color: Colors.black87, size: 20),
           )),
-      onTap: onClicked,
     );

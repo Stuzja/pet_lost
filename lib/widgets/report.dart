@@ -11,7 +11,7 @@ class Report extends StatelessWidget{
             child: Column(
               children: [
                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-                Container(
+                SizedBox(
                     height: 65,
                     child: Center(
                         child: TextButton.icon(

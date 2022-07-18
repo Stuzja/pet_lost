@@ -5,11 +5,9 @@ import 'package:pet_lost/widgets/footer.dart';
 import 'package:pet_lost/widgets/main_info.dart';
 import 'package:pet_lost/widgets/report.dart';
 import 'package:share/share.dart';
-import 'package:pet_lost/widgets/footer_part.dart';
 import 'package:pet_lost/widgets/comment.dart';
 import 'package:pet_lost/widgets/socialmediaButtons.dart';
 import 'package:pet_lost/widgets/otherlostpet.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _wasTap = false;
   int activePage = 0;
   bool showNumber = false;
-  var _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ListView(children: <Widget>[
         //Карусель фото
         Stack(alignment: AlignmentDirectional.bottomCenter, children: [
-          Container(
+          SizedBox(
               height: 250,
               child: PageView(
                 scrollDirection: Axis.horizontal,
@@ -121,10 +119,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.black.withOpacity(0.7),
                 borderRadius: BorderRadius.circular(3)),
             child: Text('  ${activePage + 1}/4  ',
-                style: TextStyle(color: Colors.white, fontSize: 11)),
+                style: const  TextStyle(color: Colors.white, fontSize: 11)),
           )
         ]),
-
+        //Блок с инфой и кнопками
         Padding(
             padding: const EdgeInsets.only(left: 22.0, top: 16.93, right: 22.0),
             child: Column(
@@ -168,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(height: 15),
                 buildBigSocialButtons(),
                 const Divider(color: Color.fromRGBO(203, 203, 203, 1)),
-                DopInfoWidget(),
+                const DopInfoWidget(),
                 const SizedBox(height: 35),
                 Text("Похожие пропавшие",
                     style: Theme.of(context).textTheme.headline1),
